@@ -40,10 +40,10 @@
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "yarn run compile",
+		"vscode:prepublish": "bun run compile",
 		"compile": "node ./bundle.mjs",
 		"watch": "tsc -watch -p ./",
-		"pretest": "yarn run compile && yarn run lint",
+		"pretest": "bun run compile && bun run lint",
 		"lint": "biome check",
 		"test": "node ./out/test/runTest.js"
 	},
