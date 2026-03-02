@@ -1,11 +1,11 @@
 {
-	"name": "fonted",
-	"displayName": "fonted",
-	"description": "Change UI font for vscode. Just that.",
+	"name": "fontic",
+	"displayName": "Fontic",
+	"description": "Change UI Interface font for vscode (yes the editor itself). Just that.",
 	"version": "1.2.1",
 	"publisher": "notlousybook",
-	"icon": "assets/fonted.png",
-	"repository": "https://github.com/notlousybook/fonted.git",
+	"icon": "assets/fontic.png",
+	"repository": "https://github.com/notlousybook/fontic.git",
 	"engines": {
 		"vscode": "^1.95.0"
 	},
@@ -22,31 +22,31 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "fonted.enable",
-				"title": "Fonted: Enable"
+				"command": "fontic.enable",
+				"title": "Fontic: Enable"
 			},
 			{
-				"command": "fonted.disable",
-				"title": "Fonted: Disable"
+				"command": "fontic.disable",
+				"title": "Fontic: Disable"
 			},
 			{
-				"command": "fonted.reload",
-				"title": "Fonted: Reload"
+				"command": "fontic.reload",
+				"title": "Fontic: Reload"
 			},
 			{
-				"command": "fonted.revert",
-				"title": "Fonted: Revert UI"
+				"command": "fontic.revert",
+				"title": "Fontic: Revert UI"
 			}
 		],
 		"configuration": {
 			"type": "object",
-			"title": "Fonted",
+			"title": "Fontic",
 			"properties": {
-				"fonted.font": {
+				"fontic.font": {
 					"type": "string",
 					"description": "Font to replace UI font"
 				},
-				"fonted.fontStretch": {
+				"fontic.fontStretch": {
 					"type": "string",
 					"description": "font-stretch value"
 				}

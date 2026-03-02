@@ -6,8 +6,8 @@ import * as vscode from "vscode";
 // Constants
 // ---------------------------------------------------------------------------
 
-const EXTENSION_ID = "fonted";
-const STYLE_ID_TAG = '<style id="fonted">';
+const EXTENSION_ID = "fontic";
+const STYLE_ID_TAG = '<style id="fontic">';
 
 /**
  * Candidate relative paths to the VS Code workbench HTML file.
@@ -37,7 +37,7 @@ let outputChannel: vscode.OutputChannel | undefined;
 /** Returns a shared output-channel for structured logging. */
 function getOutputChannel(): vscode.OutputChannel {
 	if (!outputChannel) {
-		outputChannel = vscode.window.createOutputChannel("Fonted");
+		outputChannel = vscode.window.createOutputChannel("Fontic");
 	}
 	return outputChannel;
 }
@@ -62,32 +62,32 @@ function logError(message: string, error?: unknown): void {
 
 /**
  * Called by VS Code when the extension is activated.
- * Registers all commands contributed by fonted.
+ * Registers all commands contributed by fontic.
  */
 export function activate(context: vscode.ExtensionContext): void {
-	log("Activating fonted extension");
+ log("Activating fontic extension");
 
-	const commands: Array<[string, () => void | Promise<void>]> = [
-		["fonted.enable", () => setFont()],
-		["fonted.disable", () => unsetFont()],
-		["fonted.reload", () => reloadFont()],
-		["fonted.revert", () => revertUI()],
-	];
+ const commands: Array<[string, () => void | Promise<void>]> = [
+ 	["fontic.enable", () => setFont()],
+ 	["fontic.disable", () => unsetFont()],
+ 	["fontic.reload", () => reloadFont()],
+ 	["fontic.revert", () => revertUI()],
+ ];
 
-	for (const [id, handler] of commands) {
-		context.subscriptions.push(vscode.commands.registerCommand(id, handler));
-	}
+ for (const [id, handler] of commands) {
+ 	context.subscriptions.push(vscode.commands.registerCommand(id, handler));
+ }
 
-	if (outputChannel) {
-		context.subscriptions.push(outputChannel);
-	}
+ if (outputChannel) {
+ 	context.subscriptions.push(outputChannel);
+ }
 
-	log("Fonted extension activated");
+ log("Fontic extension activated");
 }
 
 /** Called by VS Code when the extension is deactivated. */
 export function deactivate(): void {
-	log("Fonted extension deactivated");
+ log("Fontic extension deactivated");
 }
 
 // ---------------------------------------------------------------------------
@@ -144,7 +144,7 @@ function getStyleMarkup(font: FontConfig): string {
 
 	const declarations = `{font-family: "${font.fontFamily}" !important; ${fontStretch}}`;
 
-	return `<style id="fonted">
+	return `<style id="fontic">
   :is(.mac, .windows, .linux, :host-context(.OS), .monaco-inputbox input):not(.monaco-mouse-cursor-text) ${declarations}
   </style>`;
 }
@@ -186,7 +186,7 @@ function setFont(): void {
 }
 
 /**
- * Removes the fonted style block from the workbench HTML.
+ * Removes the fontic style block from the workbench HTML.
  *
  * @param silent — If `true`, suppresses the restart prompt (used internally
  *                 by {@link reloadFont} to avoid two successive prompts).
@@ -196,11 +196,11 @@ function unsetFont(silent = false): void {
 		const html = getWorkbenchHtml();
 
 		if (!html.includes(STYLE_ID_TAG)) {
-			log("No fonted style found — nothing to remove");
+			log("No fontic style found — nothing to remove");
 			return;
 		}
 
-		const newHtml = html.replace(/<style id="fonted">(?:[^<]*\n)*([^<]*)<\/style>/gm, "");
+		const newHtml = html.replace(/<style id="fontic">(?:[^<]*\n)*([^<]*)<\/style>/gm, "");
 
 		saveWorkbench(newHtml);
 
@@ -288,7 +288,7 @@ function saveWorkbench(html: string): void {
 // ---------------------------------------------------------------------------
 
 /**
- * Retrieves a single fonted configuration value by key.
+ * Retrieves a single fontic configuration value by key.
  */
 function getConfig<T>(key: string): T | undefined {
 	return vscode.workspace.getConfiguration(EXTENSION_ID).get<T>(key);
