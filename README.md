@@ -9,8 +9,7 @@ An extension to change the UI font of VS Code. That's all it does.
 > Based on https://github.com/blackmann/fonted but this is made better ig idk man
 
 > [!IMPORTANT]
-> For Cursor (and some other VS Code forks), the marketplace doesn't stay up to date with the current version of Fontic. Please use the [Releases](https://github.com/notlousybook/fontic/releases) page.
-
+> The old version wasn't maintained but i'll keep maintaining and fixing bugs in this fork :]
 
 <img src="assets/dark.png" alt="Fontic — dark theme preview" />
 
